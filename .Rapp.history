@@ -1,0 +1,437 @@
+??data
+read.table("cholesterol.txt")
+read.table("/Users/Juste/Documents/Cours/TherapeuticEvaluation/Docs/HK8/cholesterol.txt")
+read.table("/Users/Juste/Documents/Cours/TherapeuticEvaluation/Docs/HK8/cholesterol.txt",sep=" ")
+read.csv("/Users/Juste/Documents/Cours/TherapeuticEvaluation/Docs/HK8/cholesterol.txt",sep=" ")
+read.csv("/Users/Juste/Documents/Cours/TherapeuticEvaluation/Docs/HK8/cholesterol.txt",sep="\ ")
+read.csv("/Users/Juste/Documents/Cours/TherapeuticEvaluation/Docs/HK8/cholesterol.txt",sep="\ ")
+?cd
+??cd
+??directory
+RHOME
+R.hoem
+R.home
+R.home()
+?dir
+setwd
+getwd()
+setwd(./Documents/Cours/STNUM/TP2)
+setwd(""./Documents/Cours/STNUM/TP2")
+setwd("./Documents/Cours/STNUM/TP2")
+getwd()
+read.csv("/Users/Juste/Documents/Cours/TherapeuticEvaluation/Docs/HK8/cholesterol.txt",sep="\ ")
+read.csv("/Users/Juste/Documents/Cours/TherapeuticEvaluation/Docs/HK8/cholesterol.txt",sep="\t")
+data.frame(read.csv("/Users/Juste/Documents/Cours/TherapeuticEvaluation/Docs/HK8/cholesterol.txt",sep="\t"))
+data <- read.csv("/Users/Juste/Documents/Cours/TherapeuticEvaluation/Docs/HK8/cholesterol.txt",sep="\t")
+data
+data$trialname
+escalc(measure = "RR", ai = tpos, bi = tneg, ci = cpos,+    di = cneg, data = dat.bcg, append = TRUE)
+escalc(measure = "OR", ai = xe, bi = ne, ci = xc, di = nc, data = data, append = TRUE)
+or <- escalc(measure="OR",ai=xe,bi=ne,ci=xc,di=nc,data=data,append=FALSE)
+or
+?forest
+rma(yi,vi,data=or)
+forest(rma(yi,vi,data=or))
+or <- escalc(measure="OR",ai=xe,bi=ne,ci=xc,di=nc,data=data,append=TRUE)
+forest(rma(yi,vi,data=or))
+forest(rma(yi,vi,data=or))
+?forest
+forest(rma.mh(ai=xe,bi=ne,ci=xc,di=nc,data=data,measure="OR"))
+forest(rma(yi,vi,data=or))
+forest(rma.mh(ai=xe,bi=ne-xe,ci=xc,di=nc-xc,data=data,measure="OR"))
+forest(rma(yi,vi,data=or))
+?par
+par("mfcol"=2)
+par("mfcol"=2)#
+#forest plot of random effect model#
+forest(rma(yi,vi,data=or))#
+#fixed effect model with MH method#
+forest(rma.mh(ai=xe,bi=ne-xe,ci=xc,di=nc-xc,data=data,measure="OR"))
+?rma
+forest(rma.uni(yi,vi,method="FE",data=or))
+forest(rma.uni(yi,vi,method="FE",data=or,verbose=TRUE))
+or <- escalc(measure="OR",ai=xe,bi=ne,ci=xc,di=nc,data=data,append=TRUE)
+forest(rma.uni(yi,vi,method="FE",data=or,verbose=TRUE))
+rma.uni
+rma.uni(yi,vi,method="FE",data=or,verbose=TRUE)
+or
+rma.uni
+?rma.uni
+forest(rma.uni(yi,vi,method="FE",data=or,verbose=TRUE))
+forest(rma.mh(ai=xe,bi=ne-xe,ci=xc,di=nc-xc,data=data,measure="OR"))
+forest(rma(yi,vi,data=or))
+?rma.mh
+?rma
+forest(rma(yi,vi,data=or,method="DL"))
+forest(rma(yi,vi,data=or))
+fitstats(rma(yi,vi,data=or,method="DL"))
+print(rma(yi,vi,data=or,method="DL"))
+dl <- rma(yi,vi,data=or,method="DL")
+dl
+dl <- rma(yi,vi,data=or,method="DL",intercept=TRUE)#
+forest(dl)
+?escalc
+data
+sub <- c()#
+for(i in data$id){#
+	if(data$ihdentry[i]="With IHD"){sub = c(sub,i)}#
+}
+sub <- c()#
+for(i in data$id){#
+	if(data$ihdentry[i]=="With IHD"){sub = c(sub,i)}#
+}
+sub
+escalc(measure="OR",ai=xe,bi=ne,ci=xc,di=nc,data=data,append=TRUE,subset=sub)
+forest(escalc(measure="OR",ai=xe,bi=ne,ci=xc,di=nc,data=data,append=TRUE,subset=sub))
+forest(rma.uni(yi,vi,method="FE",data=escalc(measure="OR",ai=xe,bi=ne,ci=xc,di=nc,data=data,append=TRUE,subset=sub)))
+?lrm
+??lrm
+??linear
+?lm
+lm(yi~cholreduc,data=or)
+summary(lm(yi~cholreduc,data=or))
+plot(lm(yi~cholreduc,data=or))
+plot(lm(yi~cholreduc,data=or))
+?lm
+plot(lm(yi~cholreduc,data=or),las=1)
+ctl <- c(4.17,5.58,5.18,6.11,4.50,4.61,5.17,4.53,5.33,5.14)#
+trt <- c(4.81,4.17,4.41,3.59,5.87,3.83,6.03,4.89,4.32,4.69)#
+group <- gl(2, 10, 20, labels = c("Ctl","Trt"))#
+weight <- c(ctl, trt)#
+lm.D9 <- lm(weight ~ group)#
+lm.D90 <- lm(weight ~ group - 1) # omitting intercept#
+#
+anova(lm.D9)#
+summary(lm.D90)#
+#
+opar <- par(mfrow = c(2,2), oma = c(0, 0, 1.1, 0))#
+plot(lm.D9, las = 1)      # Residuals, Fitted, ...#
+par(opar)
+anova(lm(yi~cholreduc,data=or))
+?forest
+data
+forest(rma.uni(yi,vi,method="FE",data=or,verbose=TRUE),slab=data$trialname)
+summary(lm(yi~cholreduc,data=or))
+or <- escalc(measure="OR",ai=xe,bi=ne,ci=xc,di=nc,data=data,append=TRUE)
+forest(rma.uni(yi,vi,method="FE",data=or,verbose=TRUE),slab=data$trialname)
+setwd("./Documents/Cours/STNUM/TP2")
+setwd("/Users/Juste/Documents/Cours/STNUM/TP2")
+paint8=data.frame(read.csv("paintings8.dat",sep=","))
+paint8=data.frame(read.csv("painting8.dat",sep=","))
+paint8
+read.csv("painting8.dat",sep=",")
+a<-read.csv("painting8.dat",sep=",")
+a$X0
+?data.frame
+?read.csv
+paint8=read.csv("painting8.dat",sep=",")
+par(bg="cornsilk",lwd=2,col="darkblue",fg="darkblue")#
+boxplot(paint8)
+par(bg="cornsilk",lwd=2,col="darkblue",fg="darkblue")#
+boxplot(paint8)
+pairs(paint8)
+?pairs
+pairs(paint8,fg="darkblue",bg="orange",pch=21,cex=1.5)
+pairs(paint8,fg="darkblue",bg="orange",pch=21,cex=1.5)
+?pairs
+pairs(paint8,fg="darkblue",bg="orange",pch=21,cex=10)
+pairs(paint8,fg="darkblue",bg="orange",pch=21,cex=1)
+pairs(paint8,fg="darkblue",bg="orange",pch=21,cex=0.5)
+pairs(paint8,fg="darkblue",bg="orange",pch=21,cex=1)
+prcomp(paint8,retx=T,scale=F)
+PCA = prcomp(paint8,retx=T,scale=F)
+PCA$x
+coords = PCA$x
+?par
+par(mfcol=c(1,2),lwd=2,bg="lightgreen",fg="darkpurple",col="darkpurple")
+boxplot(coords)
+par(mfcol=c(1,2),lwd=2,bg="lightgreen",fg="darkblue",col="darkblue")
+par(mfcol=c(1,2),lwd=2,bg="lightgreen",fg="darkblue",col="darkblue")
+boxplot(coords)
+plot(coords[,1:2],col="darkred",pch=20,cex=1,bg="yellow")
+par(mfcol=c(1,2),lwd=2,bg="lightgreen",fg="darkblue",col="darkblue")#
+boxplot(coords)#
+plot(coords[,1:2],col="darkred",pch=20,cex=1,bg="lightyellow")
+par(mfcol=c(1,2),lwd=2,bg="lightgreen",fg="darkblue",col="darkblue")#
+boxplot(coords)#
+plot(coords[,1:2],col="darkred",pch=20,cex=1,bg="orange")
+plot(coords[,1:2],type="n")
+plot(coords[,1:2],type="l")
+points(coords[1:40,1:2],col="darkblue",bg="lightblue",pch=20,cex=1)
+plot(coords[,1:2],type="n")#
+points(coords[1:40,1:2],col="darkblue",bg="lightblue",pch=20,cex=1)
+points(coords[41:84,1:2],col="darkred",bg="lightred",pch=20,cex=1)
+?dim
+dim(coords)
+plot(coords[,1:2],type="n")#
+points(coords[1:40,1:2],col="darkblue",bg="lightblue",pch=20,cex=1)#
+points(coords[41:83,1:2],col="darkred",bg="lightred",pch=20,cex=1)
+points(coords[41:83,1:2],col="darkred",bg="lightred",pch=20,cex=1)
+plot(coords[,1:2],type="n")#
+points(coords[1:40,1:2],col="darkblue",bg="lightblue",pch=20,cex=1)#
+points(coords[41:83,1:2],col="darkred",bg="red",pch=20,cex=1)
+paint64=read.csv("painting64.dat",sep=",")
+paint64=read.csv("painting64.dat",sep=",")#
+PCA64 = prcomp(paint8,retx=T,scale=F)#
+coords64 = PCA64$x#
+par(mfcol=c(1,2),lwd=2,bg="lightgreen",fg="darkblue",col="darkblue")#
+boxplot(coords64)#
+plot(coords64[,1:2],col="darkred",pch=20,cex=1)
+paint64
+paint64=read.csv("painting64.dat",sep=",")#
+PCA64 = prcomp(paint64,retx=T,scale=F)#
+coords64 = PCA64$x#
+par(mfcol=c(1,2),lwd=2,bg="lightgreen",fg="darkblue",col="darkblue")#
+boxplot(coords64)#
+plot(coords64[,1:2],col="darkred",pch=20,cex=1)
+plot(coords64[,1:2],type="n")#
+points(coords64[1:40,1:2],col="darkblue",bg="lightblue",pch=20,cex=1)#
+points(coords64[41:83,1:2],col="darkred",bg="red",pch=20,cex=1)
+plot(coords[,1:2],type="n")#
+points(coords[1:40,1:2],col="green",bg="lightblue",pch=20,cex=1)#
+points(coords[41:83,1:2],col="red",bg="red",pch=20,cex=1)
+plot(coords[,1:2],type="n")#
+points(coords[1:40,1:2],col="green",bg="lightblue",pch=20,cex=1)#
+points(coords[41:83,1:2],col="red",bg="red",pch=20,cex=1)
+plot(coords64[,1:2],type="n")#
+points(coords64[1:40,1:2],col="green",bg="lightblue",pch=20,cex=1)#
+points(coords64[41:83,1:2],col="red",bg="red",pch=20,cex=1)
+layout(matrix(c(1,1,2,3),2,2,byrow=T))
+?layout
+par(bg="lightgreen")
+plot(coords64[,1:2],type="n")#
+points(coords64[1:40,1:2],col="green",pch=20,cex=1)#
+points(coords64[41:83,1:2],col="red",pch=20,cex=1)#
+text(coords64[1:40,1:2]-c(0.01,0.01),as.character(1:40),font=1,col="green")#
+text(coords64[41:83,1:2]-c(0.01,0.01),as.character(1:40),font=1,col="red")
+layout(matrix(c(1,1,2,3),2,2,byrow=T))#
+par(bg="lightgreen")#
+plot(coords64[,1:2],type="n")#
+points(coords64[1:40,1:2],col="green",pch=20,cex=1)#
+points(coords64[41:83,1:2],col="red",pch=20,cex=1)#
+text(coords64[1:40,1:2]-c(0.01,0.01),as.character(1:40),font=1,col="green")#
+text(coords64[41:83,1:2]-c(0.01,0.01),as.character(1:40),font=1,col="red")
+layout(matrix(c(1,1,2,3),2,2,byrow=T))#
+par(bg="lightgreen")#
+plot(coords64[,1:2],type="n")#
+points(coords64[1:40,1:2],col="yellow",pch=20,cex=1)#
+points(coords64[41:83,1:2],col="red",pch=20,cex=1)#
+text(coords64[1:40,1:2]-c(0.01,0.01),as.character(1:40),font=1,col="yellow")#
+text(coords64[41:83,1:2]-c(0.01,0.01),as.character(1:40),font=1,col="red")
+?screeplot
+layout(matrix(c(1,1,2,3),2,2,byrow=T))#
+par(bg="lightgreen")#
+plot(coords64[,1:2],type="n")#
+points(coords64[1:40,1:2],col="yellow",pch=20,cex=1)#
+points(coords64[41:83,1:2],col="red",pch=20,cex=1)#
+text(coords64[1:40,1:2]-c(0.01,0.01),as.character(1:40),font=1,col="yellow")#
+text(coords64[41:83,1:2]-c(0.01,0.01),as.character(1:40),font=1,col="red")#
+#screeplot#
+screeplot(PCA64,xlab="Scree graph")
+?cor
+cormat = cor(paint64,coords64[,1:2])
+?corcircle
+?s.corcircle
+library(ade4)
+install.packages("ade4")
+library(ade4)
+cormat = cor(paint64,coords64[,1:2])
+cormat
+?s.corcircle
+layout(matrix(c(1,1,2,3),2,2,byrow=T))#
+par(bg="lightgreen")#
+plot(coords64[,1:2],type="n")#
+points(coords64[1:40,1:2],col="yellow",pch=20,cex=1)#
+points(coords64[41:83,1:2],col="red",pch=20,cex=1)#
+text(coords64[1:40,1:2]-c(0.01,0.01),as.character(1:40),font=1,col="yellow")#
+text(coords64[41:83,1:2]-c(0.01,0.01),as.character(1:40),font=1,col="red")#
+#screeplot#
+screeplot(PCA64,xlab="Scree graph")#
+#correlation circle#
+library(ade4)#
+cormat = cor(paint64,coords64[,1:2])#
+s.corcircle(cormat,lab=names(paint64))
+Scree graph and correlation circle#
+layout(matrix(c(1,1,2,3),2,2,byrow=T))#
+par(bg="lightgreen")#
+plot(coords64[,1:2],type="n")#
+points(coords64[1:40,1:2],col="yellow",pch=20,cex=1)#
+points(coords64[41:83,1:2],col="red",pch=20,cex=1)#
+text(coords64[1:40,1:2]-c(0.01,0.01),as.character(1:40),font=1,col="yellow")#
+text(coords64[41:83,1:2]-c(0.01,0.01),as.character(1:40),font=1,col="red")#
+#screeplot#
+screeplot(PCA64,xlab="Scree graph")#
+#correlation circle#
+library(ade4)#
+cormat = cor(paint64,coords64[,1:2])#
+s.corcircle(cormat)
+inertia<-function(k,data){#
+	data$sdev#
+}
+inertia(1,paint8)
+inertia(1,PCA)
+rma.uni
+inertia<-function(k,data){#
+	if(data$sdev==NULL){stop("data frame must contain std devs")}#
+	else{#
+		dev<-data$sdev#
+		dim(dev)#
+	}#
+}
+inertia(1,PCA)
+PCA$sdev
+inertia<-function(k,data){#
+	if(is.null(data$sdev)){stop("data frame must contain std devs")}#
+	else{#
+		dev<-data$sdev#
+		dim(dev)#
+	}#
+}
+inertia(1,PCA)
+inertia<-function(k,data){#
+	if(is.null(data$sdev)){stop("data frame must contain std devs")}#
+	else{#
+		dev<-data$sdev#
+		dev#
+	}#
+}
+inertia(1,PCA)
+?length
+d<-PCA$sdevs
+length(d)
+d
+d<-PCA$sdev
+length(d)
+d[7]
+d[0]
+d[1]
+?sum
+d^2
+?seq
+rep(1,10)
+c(rep(1,10),rep(0,2))
+z<-c(rep(1,10),rep(0,2))
+z
+z<-c(rep(1,5),rep(0,2))
+d*z
+inertia<-function(k,data){#
+	if(is.null(data$sdev)){stop("data frame must contain std devs")}#
+	else{#
+		dev<-(data$sdev)^2 #variances are \sigma ^2#
+		if(k>length(dev)){stop("Check dimension!")}#
+		else{#
+			return(sum(dev*(c(rep(1,k),rep(0,length(dev)-k))))/sum(dev))#
+		}#
+	}#
+}
+inertia(2,PCA)
+inertia(1,PCA)
+inertia(3,PCA)
+inertia(2,PCA64)
+inertia(1,PCA64)
+plot(function(k){inertia(k,PCA64)},from=1,to=64)
+plot(function(k){inertia(k,PCA64)},from=1,to=63)
+length(PCA64$sdev)
+?plot
+plot(1:63,apply(1:63,i64))
+plot(1:63,apply(1:63,FUN=i64))
+i64<-function(k){inertia(k,PCA64)}
+plot(1:63,apply(1:63,FUN=i64))
+1:63
+apply(1:63,FUN=i64)
+apply(X=1:63,FUN=i64)
+apply(X=c(1:63),FUN=i64)
+apply(X=data.frame(1:63),FUN=i64)
+?apply
+apply(X=matrix(1:63),FUN=i64)
+?apply
+matrix(1:63)
+apply(X=matrix(1:63),MARGIN=2,FUN=i64)
+apply(X=matrix(1:63),MARGIN=2,FUN=i64)
+apply(X=matrix(1:63),MARGIN=1,FUN=i64)
+plot(1:63,apply(X=matrix(1:63),MARGIN=1,FUN=i64))
+i8<-function(k){inertia(k,PCA)}#
+i64<-function(k){inertia(k,PCA64)}#
+par(mfcol=c(2,1))#
+plot(1:63,apply(X=matrix(1:63),MARGIN=1,FUN=i64))#
+plot(1:8,apply(X=matrix(1:8),MARGIN=1,FUN=i8))
+i8<-function(k){inertia(k,PCA)}#
+i64<-function(k){inertia(k,PCA64)}#
+par(mfcol=c(2,1))#
+plot(1:63,apply(X=matrix(1:63),MARGIN=1,FUN=i64))#
+plot(1:7,apply(X=matrix(1:7),MARGIN=1,FUN=i8))
+tests#
+inertia(2,PCA)#
+inertia(2,PCA64)#
+#
+i8<-function(k){inertia(k,PCA)}#
+i64<-function(k){inertia(k,PCA64)}#
+par(mfcol=c(2,1))#
+plot(1:63,apply(X=matrix(1:63),MARGIN=1,FUN=i64),ylab="inertia")#
+plot(1:7,apply(X=matrix(1:7),MARGIN=1,FUN=i8),ylab="inertia")
+tests#
+inertia(2,PCA)#
+inertia(2,PCA64)#
+#
+i8<-function(k){inertia(k,PCA)}#
+i64<-function(k){inertia(k,PCA64)}#
+par(mfcol=c(1,2))#
+plot(1:63,apply(X=matrix(1:63),MARGIN=1,FUN=i64),ylab="inertia")#
+plot(1:7,apply(X=matrix(1:7),MARGIN=1,FUN=i8),ylab="inertia")
+inertia(2,PCA)#
+inertia(2,PCA64)#
+#
+i8<-function(k){inertia(k,PCA)}#
+i64<-function(k){inertia(k,PCA64)}#
+par(mfcol=c(1,2))#
+plot(1:63,apply(X=matrix(1:63),MARGIN=1,FUN=i64),ylab="inertia",xlab="Comp number",main="k=64")#
+plot(1:7,apply(X=matrix(1:7),MARGIN=1,FUN=i8),ylab="inertia",xlab="Comp number",main="k=8")
+layout(matrix(c(1,1,2,3),2,2,byrow=T))#
+par(bg="lightgreen")#
+plot(coords64[,1:2],type="n")#
+points(coords64[1:40,1:2],col="yellow",pch=20,cex=1)#
+points(coords64[41:83,1:2],col="red",pch=20,cex=1)#
+text(coords64[1:40,1:2]-c(0.01,0.01),as.character(1:40),font=1,col="yellow")#
+text(coords64[41:83,1:2]-c(0.01,0.01),as.character(1:40),font=1,col="red")#
+#screeplot#
+screeplot(PCA64,xlab="Scree graph")#
+#correlation circle#
+library(ade4)#
+cormat = cor(paint64,coords64[,1:2])#
+s.corcircle(cormat)
+paint64
+??append
+for(v in paint64){v}
+for(v in paint64){print(v)}
+?data.frame
+row.names(paint64)<-1:63
+row.names(paint64)<-1:64
+row.names(paint64)
+row.names(paint64)<-1:83
+row.names(paint64)
+s.corcircle(cormat)
+paint64
+?column.names
+??column.names
+colnames(paint64)<-1:64
+colnames(paint64)<-1:63
+paint64
+layout(matrix(c(1,1,2,3),2,2,byrow=T))#
+par(bg="lightgreen")#
+plot(coords64[,1:2],type="n")#
+points(coords64[1:40,1:2],col="yellow",pch=20,cex=1)#
+points(coords64[41:83,1:2],col="red",pch=20,cex=1)#
+text(coords64[1:40,1:2]-c(0.01,0.01),as.character(1:40),font=1,col="yellow")#
+text(coords64[41:83,1:2]-c(0.01,0.01),as.character(1:40),font=1,col="red")#
+#screeplot#
+screeplot(PCA64,xlab="Scree graph")#
+#correlation circle#
+library(ade4)#
+#change names of paint64#
+colnames(paint64)<-1:63#
+cormat = cor(paint64,coords64[,1:2])#
+s.corcircle(cormat)
+inertia(2,PCA64)
+?cor
+longley
+?s.corcircle

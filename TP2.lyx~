@@ -1,0 +1,595 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+STNUM - TP2
+\begin_inset Newline newline
+\end_inset
+
+Analyse Descriptive Multivariée
+\end_layout
+
+\begin_layout Author
+
+\noun on
+Juste Raimbault
+\end_layout
+
+\begin_layout Paragraph
+5.a
+\end_layout
+
+\begin_layout Standard
+The function 
+\family typewriter
+data.frame(.)
+\family default
+ is used for creation of data frames, a standard type of data used in R,
+ from other type of data, such as matrices, listes or many vectors.
+ Here there is no need to call it since 
+\family typewriter
+read.table(.)
+\family default
+ already return a data frame.
+\end_layout
+
+\begin_layout Paragraph
+5.b
+\end_layout
+
+\begin_layout Standard
+The argument 
+\family typewriter
+sep
+\family default
+ to the function 
+\family typewriter
+read.table(.)
+\family default
+ specifies the character used as a separator between fields of a line in
+ the csv file.
+\end_layout
+
+\begin_layout Paragraph
+6
+\end_layout
+
+\begin_layout Standard
+Boxplot is in figure 1.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename box8.pdf
+	lyxscale 20
+	scale 60
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Boxplot of variables
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The dispersion of variables is the distance between tails of boxes, so the
+ first variable is the most dispersed and the 6th is the least.
+\end_layout
+
+\begin_layout Paragraph
+8.a
+\end_layout
+
+\begin_layout Standard
+Scatterplots in figure 2.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename matrixScatter.pdf
+	lyxscale 20
+	scale 50
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Scatterplots
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The argument 
+\family typewriter
+bg
+\family default
+ fixes the color of points in the scatterplots and 
+\family typewriter
+cex
+\family default
+ fixes the size (diameter) of points.
+\end_layout
+
+\begin_layout Paragraph
+8.b
+\end_layout
+
+\begin_layout Standard
+The main part of plots are dispersed clouds, so there is no linear relation
+ for these couples.
+ For the couples where the plots are quite a horizontal (or vertical in
+ the symmetric graph) line, it is not really a linear relation also, it
+ is that the variable is quite constant (close to 0).
+\end_layout
+
+\begin_layout Paragraph
+10
+\end_layout
+
+\begin_layout Standard
+Graph of principal component analysis in figure 3.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename plotACP.pdf
+	lyxscale 20
+	scale 60
+	rotateAngle 90
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Basic graphs for PCA
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We see that the size of boxes in successives boxplots is decreasing, and
+ the size of a box corresponds to the variance of the distribution, what
+ confirms that the principals components are sorted by decreasing order
+ of variances of projected coordinates.
+\end_layout
+
+\begin_layout Paragraph
+11
+\end_layout
+
+\begin_layout Standard
+See figure 4.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename sepPainters.pdf
+	lyxscale 20
+	scale 65
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Points by painter
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Graphics
+	filename sepPainters64.pdf
+	lyxscale 20
+	scale 65
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Points by painter, CPA with 
+\begin_inset Formula $k=64$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The separation between painters is not so good, because the overlapping
+ area contains around 10 points for each, what is important regarding sample
+ size.
+\end_layout
+
+\begin_layout Paragraph
+12
+\end_layout
+
+\begin_layout Standard
+Projection of coordinates for two painters with PCA with finer data on figure
+ 5.
+\end_layout
+
+\begin_layout Standard
+In that case, the separation is clear since only one point is an outsider,
+ all other define clearly separated zones in the plan.
+\end_layout
+
+\begin_layout Standard
+Intuitively, it seems reasonnable because a finer description of the color
+ space will be able to separate colors that are closer, and so does the
+ PCA: the first coordinates extracted are the one with the greatest variance,
+ so the ones that are characteristic of the painter, and they should be
+ distinctly separated if each painter has a particular way to choose and
+ combine colors.
+\end_layout
+
+\begin_layout Paragraph
+13
+\end_layout
+
+\begin_layout Standard
+The command 
+\family typewriter
+screeplot
+\family default
+ takes as first argument an object corresponding to the result of a PCA,
+ so the object given by the function 
+\family typewriter
+prcomp
+\family default
+ for example.
+\end_layout
+
+\begin_layout Standard
+The function 
+\family typewriter
+cor
+\family default
+ calculates the correlation matrix
+\end_layout
+
+\begin_layout Standard
+The graphs are shown in figure 6.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename PCAresume.pdf
+	lyxscale 20
+	scale 70
+	rotateAngle 90
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Different graphic representation of the PCA
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+14.a
+\end_layout
+
+\begin_layout Standard
+See code for the function that gives the part of total inertia for the 
+\begin_inset Formula $k^{th}$
+\end_inset
+
+ first principal components.
+\end_layout
+
+\begin_layout Paragraph
+14.b
+\end_layout
+
+\begin_layout Standard
+The call 
+\family typewriter
+inertia(2,PCA64)
+\family default
+ gives a part of 0.77 for the first two components for the data 
+\family typewriter
+painting64
+\family default
+.
+\end_layout
+
+\begin_layout Standard
+Figure 7 shows the graphs of inertia for all components.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename inertia.pdf
+	lyxscale 20
+	scale 65
+	rotateAngle 90
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+Cumulated parts of inertia
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Source code
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize},numbers=left,numberstyle={\footnotesize},stepnumber=5"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+qsd
+\end_layout
+
+\begin_layout Plain Layout
+
+jsqh
+\end_layout
+
+\begin_layout Plain Layout
+
+qsd
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
